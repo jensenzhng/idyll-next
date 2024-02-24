@@ -166,7 +166,7 @@ const PostEditor = ({
                         value={h1Text}
                         onChange={(e) => setH1Text(e.target.value)}
                         placeholder="Article Title"
-                        className="text-5xl md:text-6xl font-bold border-none bg-transparent outline-none pb-5 text-[#1F1F1F]"
+                        className="text-5xl md:text-6xl font-bold border-none bg-transparent outline-none pb-2 md:pb-3 text-[#1F1F1F]"
                     />
                     <input
                         type="text"
@@ -178,7 +178,7 @@ const PostEditor = ({
                     <span className="flex items-center space-x-3 my-0">
                         <ImageN
                             src={session?.user?.image}
-                            className="rounded-full"
+                            className="rounded-full my-4 md:my-6"
                             width={40}
                             height={40}
                         />

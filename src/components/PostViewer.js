@@ -102,22 +102,22 @@ const PostViewer = ({
                         <div className="pb-2 md:pb-6"></div>
                     </>
                 ) : null}
-                <p className="text-5xl md:text-6xl font-bold border-none bg-transparent outline-none pb-5 text-[#1F1F1F]">
+                <p className="text-5xl md:text-6xl font-bold border-none bg-transparent outline-none pb-2 md:pb-3 text-[#1F1F1F]">
                     {title}
                 </p>
                 <p className="text-base text-gray-600 border-none bg-transparent outline-none">
                     {description}
                 </p>
 
-                <span className="flex items-center space-x-3 my-0">
+                <div className="flex items-center space-x-3">
                     <ImageN
                         src={author?.image}
-                        className="rounded-full"
+                        className="rounded-full my-4 md:my-6"
                         width={40}
                         height={40}
                     />
                     <span className="text-base">By {author?.name}</span>
-                </span>
+                </div>
             </div>
 
             <EditorContent className="w-full" editor={editor} />
