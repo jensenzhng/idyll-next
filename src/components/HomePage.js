@@ -13,6 +13,7 @@ export default function HomePage({ posts }) {
             <h1 className="text-4xl md:text-5xl font-bold text-[#1F1F1F] mb-8 mt-4">
                 Recent posts
             </h1>
+            {posts?.length === 0 ? <p className="text-gray-700">No posts yet!</p> : null}
             {posts?.map((post) => {
                 return (
                     <PostCard

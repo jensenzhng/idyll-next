@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -85,19 +85,17 @@ export default function MainNav() {
                                 </DropdownMenuLabel>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem
-                                    onClick={() => router.push('/upload')}
+                                    onClick={() => router.push("/dashboard")}
+                                    className="cursor-pointer"
+                                >
+                                    Dashboard
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    onClick={() => router.push("/upload")}
                                     className="cursor-pointer"
                                 >
                                     Upload
                                 </DropdownMenuItem>
-                                <DropdownMenuGroup>
-                                    <DropdownMenuItem>
-                                        Settings
-                                        <DropdownMenuShortcut>
-                                            ⌘S
-                                        </DropdownMenuShortcut>
-                                    </DropdownMenuItem>
-                                </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem
                                     onClick={() => signOut()}
@@ -113,9 +111,16 @@ export default function MainNav() {
                         <button
                             className="flex items-center justify-center border py-2 px-3 border-gray-300 rounded-md"
                             onClick={() => {
-                                console.log(window.location.pathname)
-                                const redirectPath = window.location.pathname !== "/signin" ? window.location.pathname : "/"
-                                router.push(`/signin?redirect=${encodeURIComponent(redirectPath)}`)
+                                console.log(window.location.pathname);
+                                const redirectPath =
+                                    window.location.pathname !== "/signin"
+                                        ? window.location.pathname
+                                        : "/";
+                                router.push(
+                                    `/signin?redirect=${encodeURIComponent(
+                                        redirectPath
+                                    )}`
+                                );
                             }}
                         >
                             <p className="text-sm">Sign In</p>

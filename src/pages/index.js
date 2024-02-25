@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
   );
 
   const posts = await prisma.post.findMany({
-      take: 10,
+      take: 20,
       orderBy: {
           createdAt: "desc",
       },
