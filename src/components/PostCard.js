@@ -21,6 +21,7 @@ const PostCard = ({ author, authorImage, title, description, postId }) => {
                     <span className="flex items-center space-x-2 my-0">
                         <Image
                             src={authorImage}
+                            alt="Author Image"
                             className="rounded-full"
                             width={25}
                             height={25}

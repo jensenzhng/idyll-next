@@ -27,7 +27,7 @@ export const authOptions = {
             return token;
         },
         async session({ session, token }) {
-            console.log(token.id);  
+            console.log(token.id);
             const [google] = await prisma.account.findMany({
                 where: { userId: token.id, provider: "google" },
             });
@@ -86,6 +86,9 @@ export const authOptions = {
             }
 
             return session;
+        },
+        async redirect({ url, baseUrl }) {
+            return baseUrl;
         },
     },
 };

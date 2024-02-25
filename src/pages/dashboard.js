@@ -2,7 +2,6 @@
 import React from "react";
 import { getSession } from "next-auth/react";
 import MainNav from "@/components/MainNav";
-import { useSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
     return {
@@ -10,4 +9,13 @@ export async function getServerSideProps(context) {
             session: await getSession(context),
         },
     };
+}
+
+export default function Dashboard() {
+    return (
+        <div>
+            <MainNav />
+            <h1>Dashboard</h1>
+        </div>
+    )
 }

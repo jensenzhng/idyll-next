@@ -38,7 +38,13 @@ export async function getServerSideProps(context) {
   };
 }
 
-//getserverprops
+/*
+  todo:
+  - deploy to aws
+  - add dates to posts
+  - dashboard page
+  - user profile page
+*/
 
 export default function Home({ posts }) {
     // const { data: session } = useSession();

@@ -16,7 +16,7 @@ export default function SignInCard() {
             <div className="border-solid border p-6 border-gray-300 rounded-md max-w-[70rem] mx-14 bg-white">
                 <h1 className="text-xl font-bold mb-1">Sign in</h1>
                 <p className="text-gray-600 text-sm mb-6">
-                    to continue to Idyll. We'll make your account if you don't
+                    to continue to Idyll. We&apos;ll make your account if you don&apos;t
                     have one.
                 </p>
                 <button

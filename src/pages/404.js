@@ -10,7 +10,7 @@ export default function Custom404() {
                     <div className="border-solid border p-6 border-gray-300 rounded-md max-w-[80rem] mx-14 bg-white">
                         <h1 className="text-xl font-bold mb-1">Whoops!</h1>
                         <p className="text-gray-600 text-sm mb-4">
-                            The page you're looking for doesn't exist.
+                            The page you&apos;re looking for doesn&apos;t exist.
                         </p>
                         <Link
                             className="flex items-center"
