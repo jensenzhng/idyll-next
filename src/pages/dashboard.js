@@ -62,7 +62,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function Dashboard({ published, drafts}) {
-
     return (
         <Layout>
             <DashboardPage published={published} drafts={drafts} />
