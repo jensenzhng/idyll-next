@@ -113,12 +113,11 @@ const PostEditor = ({
             }
 
             const data = await response.json();
-            console.log(data);
 
             if (isPublishing) {
                 router.push(`/post/${data.id}`);
             } else {
-                router.push(`/edit/${data.id}`);
+                router.push(`/dashboard`);
             }
             toast({
                 title: "Post created",

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/router";
 
-const PostCard = ({ author, authorImage, title, description, postId }) => {
+const PostCard = ({ author, authorImage, title, description, postId, isDraft=false }) => {
     const router = useRouter();
 
     return (
@@ -31,7 +31,7 @@ const PostCard = ({ author, authorImage, title, description, postId }) => {
                         </span>
                     </span>
                 </div>
-                <span className="flex items-center" href={`/post/${postId}`}>
+                <span className="flex items-center" href={`/${isDraft ? "edit" : "post"}/${postId}`}>
                     Read More
                     <ArrowRight className="w-4 h-4 ml-1" />
                 </span>

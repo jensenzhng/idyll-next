@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Layout from "@/components/Layout";
 import DashboardPage from "@/components/DashboardPage";
+import prisma from "@/lib/prisma";
 
 export async function getServerSideProps(context) {
     const session = await getServerSession(
