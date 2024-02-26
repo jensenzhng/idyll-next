@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      args:
+        - npmrc=.npmrc  # Assuming you have a .npmrc file to use during build
+    env_file: .env
+    networks:
+      - web
+    # ports:
+    #   - "80:80"
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - app
+    networks:
+      - web
+networks:
+  web:
+    driver: bridge
