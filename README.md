@@ -101,12 +101,6 @@ Instructions on setting up Let's Encrypt with Certbot for securing your applicat
 
 Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-Specify the license under which your project is made available. For example:
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
 ## Contact
 
 For questions or comments, please contact me @ jzhang3318@gatech.edu. Thank you!
