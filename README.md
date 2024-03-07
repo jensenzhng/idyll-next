@@ -35,7 +35,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Docker and Docker Compose installed on your machine.
 - Node.js (if you plan to run the application outside Docker).
-- An AWS EC2 instance (for deployment)
+- An AWS EC2 instance (optional, for deployment)
 
 To set up the Idyll application for local development:
 
@@ -54,6 +54,8 @@ To set up the Idyll application for local development:
 
 This command builds the application and starts the services defined in `docker-compose.yml`. Note that you need two files in your root directory: `.env` and `.npmrc`.
 
+## Configuration
+
 Your `.env` file should look something like this:
 ```
 GOOGLE_CLIENT_ID=
@@ -67,10 +69,7 @@ AWS_DEFAULT_REGION=
 AWS_CDN_DOMAIN=
 AWS_BUCKET_NAME=
 ```
-
-## Configuration
-
-Explain any configuration steps, including environment variables or files that need to be set up for the application to run correctly.
+The ,npmrc is used because a dependency, `@tiptap-pro/extension-file-handler`, requires access to Tiptap's private registry. Make sure to insert your auth token into the `.npmrc` file to make sure all dependencies are installed properly.
 
 ## Deployment
 
@@ -86,20 +85,20 @@ To deploy the Idyll Next.js application on an AWS EC2 instance:
 
 2. **Run the Application on EC2**
 
-    SSH into your EC2 instance, navigate to the project directory, and start the application with Docker Compose:
+    SSH into your EC2 instance, clone and navigate to the project directory, and start the application with Docker Compose:
 
     ```sh
     cd /remote/path/idyll-next
     docker-compose up --build -d
     ```
 
-## Using SSL with Let's Encrypt
+Note that for this to run on EC2, you must have generated a SSL certificate on your EC2 machine. I used Let's Encrypt for this.
 
-Instructions on setting up Let's Encrypt with Certbot for securing your application with HTTPS.
 
 ## Contributing
 
 Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
 
 ## Contact
 
