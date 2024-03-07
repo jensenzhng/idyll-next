@@ -39,7 +39,6 @@ apiRoute.post(async (req, res) => {
 
     try {
         // Upload file to S3
-        console.log(req.file);
         const file = req.file;
         if (!file) return res.status(400).json({ error: "No file uploaded." });
 

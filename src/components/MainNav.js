@@ -111,7 +111,6 @@ export default function MainNav() {
                         <button
                             className="flex items-center justify-center border py-2 px-3 border-gray-300 rounded-md"
                             onClick={() => {
-                                console.log(window.location.pathname);
                                 const redirectPath =
                                     window.location.pathname !== "/signin"
                                         ? window.location.pathname

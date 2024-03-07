@@ -1,40 +1,112 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Idyll 
 
-First, run the development server:
+Idyll is a food blogging platform where anyone can share or view their food recipes/ideas. It's built with an easy and intuitive UI and a Notion-like rich text editor so that users can spend more time on perfecting their recipes, not struggling with navigating a confusing website.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Home page:
+![HomePage](/images/idyll_home.png)
+
+Post:
+![PostPage](/images/idyll_post.png)
+
+## Technologies
+- **Next.js/React and Tailwind** for the front-end framework and server-side components
+- **NextAuth w/ Google OAuth & JWTs** for easy yet robust and secure authentication
+- **PostgreSQL w/ Prisma ORM** for database and database management
+- **AWS Technologies:**
+    - **EC2** for server hosting and deployment 
+    - **RDS** for Postgres in the cloud 
+    - **S3** for hosting static files such as user-uploaded images, and **CloudFront** for global CDN
+    - **Route53** for DNS management
+- **Docker** for containerization and easy deployments on any platform
+- **Nginx** as a proxy for HTTP/HTTPS requests, and SSL certification
+
+
+## Features
+- Notion-like rich text editor that follows the What You See Is What You Get (WYSIWYG) principle, for seamless and easy text editing on the user's end
+    - Supports images directly in the editor, with images automatically uploaded to S3 bucket
+- Easy authentication through Google OAuth
+- Users can **C**reate, **R**ead, **U**pdate, and **D**elete (CRUD) their own posts, as well as draft but not post content
+- Dashboard page for existing users to manage previous posts and drafts
+
+## Local Development
+
+Before you begin, ensure you have met the following requirements:
+
+- Docker and Docker Compose installed on your machine.
+- Node.js (if you plan to run the application outside Docker).
+- An AWS EC2 instance (for deployment)
+
+To set up the Idyll application for local development:
+
+1. **Clone the Repository**
+
+    ```sh
+    git clone https://github.com/jensenzhng/idyll-next.git
+    cd idyll-next
+    ```
+
+2. **Build and Run with Docker Compose**
+
+    ```sh
+    docker-compose up --build
+    ```
+
+This command builds the application and starts the services defined in `docker-compose.yml`. Note that you need two files in your root directory: `.env` and `.npmrc`.
+
+Your `.env` file should look something like this:
+```
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+
+AWS_DATABASE_URL=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=
+AWS_CDN_DOMAIN=
+AWS_BUCKET_NAME=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Explain any configuration steps, including environment variables or files that need to be set up for the application to run correctly.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To deploy the Idyll Next.js application on an AWS EC2 instance:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Transfer Project to EC2 Instance**
 
-## Learn More
+    Use SCP or your preferred method to transfer the project files to your EC2 instance.
 
-To learn more about Next.js, take a look at the following resources:
+    ```sh
+    scp -i /path/to/your-key.pem -r /local/path/to/idyll-next ec2-user@your-instance-public-ip:/remote/path
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Run the Application on EC2**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    SSH into your EC2 instance, navigate to the project directory, and start the application with Docker Compose:
 
-## Deploy on Vercel
+    ```sh
+    cd /remote/path/idyll-next
+    docker-compose up --build -d
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Using SSL with Let's Encrypt
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Instructions on setting up Let's Encrypt with Certbot for securing your application with HTTPS.
+
+## Contributing
+
+Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+Specify the license under which your project is made available. For example:
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contact
+
+For questions or comments, please contact me @ jzhang3318@gatech.edu. Thank you!

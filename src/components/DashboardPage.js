@@ -34,6 +34,7 @@ export default function DashboardPage({ published, drafts }) {
                         author={post.user?.name}
                         authorImage={post.user?.image}
                         postId={post.id}
+                        isDraft={true}
                     />
                 );
             })}

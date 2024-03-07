@@ -22,7 +22,6 @@ export default function SignInCard() {
                 <button
                     className="flex items-center justify-center border py-2 px-3 border-gray-300 rounded-sm w-full bg-white"
                     onClick={() => {
-                        console.log(redirectPath);
                         signIn("google", {
                             callbackUrl: redirectPath ? decodeURIComponent(redirectPath) : "/",
                         });
